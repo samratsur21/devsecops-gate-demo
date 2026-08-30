@@ -29,11 +29,11 @@ jobs:
           sudo mv gitleaks /usr/local/bin/
 
       - name: Scan working tree
-        run: gitleaks detect --source. --no-git -c .gitleaks.toml --redact -v
+        run: gitleaks detect --source . --no-git -c .gitleaks.toml --redact -v
 
       - name: Scan full git history
         if: always()
-        run: gitleaks detect --source. -c .gitleaks.toml --redact -v --log-opts="--all"
+        run: gitleaks detect --source . -c .gitleaks.toml --redact -v --log-opts="--all"
 
   dependencies:
     name: Dependency and image scan (Trivy)
