@@ -1,0 +1,21 @@
+[extend]
+useDefault = true
+
+[[rules]]
+id = "database-connection-uri"
+description = "Database connection string with inline credentials"
+regex = '''(?i)(postgres|postgresql|mysql|mongodb|redis|mssql)://[a-z0-9_\-\.]+:[^@\s'"]{6,}@'''
+tags = ["credential", "database"]
+
+[[rules]]
+id = "internal-hostname-with-secret"
+description = "Password assignment in Terraform or config"
+regex = '''(?i)(password|passwd|pwd)\s*=\s*["'][^"'\s]{8,}["']'''
+tags = ["credential", "iac"]
+
+[allowlist]
+description = "Test fixtures and documentation examples"
+paths = [
+  '''(.*?)(test|spec)/(.*?)''',
+  '''(.*?)\.md$''',
+]
