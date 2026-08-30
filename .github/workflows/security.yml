@@ -14,7 +14,6 @@ permissions:
 jobs:
 
   secrets:
-      secrets:
     name: Secret scan (Gitleaks)
     runs-on: ubuntu-latest
     steps:
